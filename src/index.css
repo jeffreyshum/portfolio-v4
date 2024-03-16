@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Lora";
+  src: url("/public/Lora-Regular.ttf");
+}
+
+:root {
+  --bg-primary: #222222;
+  --bg-footer: #1f1f1f;
+  --text-primary: white;
+  --font-family: "Lora", "Times New Roman", serif;
+  --font-letter-spacing: 5px;
+  --font-weight: 100;
+  --font-size: 1rem;
+  --border-color: lightgrey;
+  --footer-text-color: #d3d3d3;
+}
+
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  letter-spacing: var(--font-letter-spacing);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  overflow-x: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
