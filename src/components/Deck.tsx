@@ -45,7 +45,7 @@ interface DeckProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
-  const [cards, ] = useState(initializeStandardDeck())
+  const [cards, ]   = useState(initializeStandardDeck())
   const cardControl = useAnimation()
   const cardContainerControl = useAnimation()
 

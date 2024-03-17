@@ -12,6 +12,7 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 `
 
 const StyledFooterContainer = styled.div`

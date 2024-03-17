@@ -6,6 +6,7 @@ import IconChip from "../IconChip"
 
 const StyledHeroSection = styled(StyledAppSection)`
   padding-top: 7rem;
+  overflow-x: hidden;
 `
 
 const HeroText = styled.span`

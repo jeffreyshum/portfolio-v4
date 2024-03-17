@@ -23,7 +23,7 @@ const StyledLabelContainer = styled(motion.div)`
   position: sticky;
   bottom: 10%;
   width: 100%;
-  z-index: 0;
+  z-index: 2;
 `
 
 const LabelCard = styled(StyledCardBase)`
@@ -57,7 +57,7 @@ const LabeledSection: FC<LabelSectionProps> = (props) => {
     <StyledLabelSection ref={ref}>
       <StyledSectionHeading>{props.sectionTitle}</StyledSectionHeading>
       <StyledChildrenContainer>{props.children}</StyledChildrenContainer>
-      <StyledLabelContainer whileInView={{ zIndex: 2 }}>
+      <StyledLabelContainer>
         <LabelCard whileInView={{ rotateY: "0deg" }}>
           <LabelCardText>{props.sectionTitle}</LabelCardText>
           <LabelCardImage src={props.sectionCardImage} />
