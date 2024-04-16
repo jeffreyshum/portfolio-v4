@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 const StyledLabelSection = styled(StyledAppSection)`
   border-top: 1px solid var(--border-color);
   padding-bottom: 330px;
-  margin-bottom: 50px;
+  margin-bottom: 300px;
 `
 
 const StyledSectionHeading = styled.h1`

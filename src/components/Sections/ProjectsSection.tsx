@@ -1,10 +1,11 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import LabeledSection from "./LabeledSection"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { StyledCardBase } from "../Card"
 import styled from "styled-components"
+import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
 
 const StyledProjectItemContainer = styled(StyledCardBase)`
   background-color: white;
@@ -17,11 +18,24 @@ const StyledProjectItemContainer = styled(StyledCardBase)`
   background-size: auto;
   background-attachment: fixed;
   background-position: center;
-  opacity: 0.5;
-  transition: 0.3s;
+  cursor: pointer;
+`
 
-  &:hover {
+const StyledSlider = styled(Slider)`
+  .slick-slide {
+    transition: 0.3s;
+  }
+
+  .slick-slide:not(.slick-active) {
+    opacity: 0.5;
+  }
+
+  .slick-slide:hover {
     opacity: 1;
+  }
+
+  .slick-dots li button:before {
+    color: white;
   }
 `
 
@@ -29,7 +43,7 @@ const StyledSliderContainer = styled.div`
   height: 100vh;
 `
 
-interface ProjectItemProps extends React.HTMLProps<HTMLImageElement> {
+interface ProjectItemProps extends HTMLMotionProps<"img"> {
   name: string
   image?: string
 }
@@ -44,25 +58,67 @@ const ProjectItem: FC<ProjectItemProps> = (props) => {
   )
 }
 
+const data = [
+  {
+    id: 0,
+    title: "Milton",
+    thumbnail: "/images/milton.png",
+    description: "some long data",
+  },
+  {
+    id: 1,
+    title: "Blog",
+    thumbnail: "/images/milton.png",
+    description: "some long description",
+  },
+]
+
 const ProjectsSection: FC = () => {
+  const [selected, setSelected] = useState(0)
+
   const settings = {
     dots: true,
     infinite: false,
     adaptiveHeight: true,
     variableWidth: true,
     centerMode: true,
+    initialSlide: selected,
+    afterChange: (index: number) => setSelected(index),
+    focusOnSelect: true,
   }
+
   return (
     <LabeledSection
       sectionTitle={"Projects"}
       sectionCardImage={"/images/lightbulb-gear.png"}
     >
       <StyledSliderContainer>
-        <Slider {...settings}>
-          <ProjectItem name={"Milton"} image={"/images/milton.png"} />
-          <ProjectItem name={"Blog"} />
-          <ProjectItem name={"This Website"} />
-        </Slider>
+        <StyledSlider {...settings}>
+          {data.map((item) => (
+            <ProjectItem
+              name={item.title}
+              image={item.thumbnail}
+              key={item.id}
+              layoutId={item.title}
+            />
+          ))}
+        </StyledSlider>
+        <AnimatePresence>
+          {selected >= 0 && (
+            <motion.div
+              layoutId={data[selected].title}
+              key={data[selected].title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ display: "none" }}
+            >
+              <div>
+                <h1>{data[selected].title}</h1>
+                <p>{data[selected].description}</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </StyledSliderContainer>
     </LabeledSection>
   )
