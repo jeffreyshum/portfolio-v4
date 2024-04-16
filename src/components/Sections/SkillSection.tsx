@@ -9,6 +9,10 @@ const StyledSkillItemContainer = styled.div`
   gap: 10px;
   padding: 10px;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: 0.65rem;
+  }
 `
 
 interface SkillItemProps extends React.HTMLProps<HTMLImageElement> {
@@ -16,8 +20,8 @@ interface SkillItemProps extends React.HTMLProps<HTMLImageElement> {
 }
 
 const StyledItemContainer = styled.div`
-  width: 150px;
   margin: auto 10px;
+  flex: 1;
 `
 
 const StyledSkillItemImage = styled.img`
@@ -26,7 +30,7 @@ const StyledSkillItemImage = styled.img`
 `
 
 const StyledSkillItemLabel = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-style: bold;
   margin: 0;
 `
