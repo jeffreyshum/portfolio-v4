@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Deck from "./components/Deck"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import HeroSection from "./components/Sections/Hero"
 import { StyledAppSection } from "./components/Sections/Section"
 import SkillSection from "./components/Sections/SkillSection"
@@ -34,6 +34,12 @@ const StyledContentContainer = styled.div`
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("")
+
+  useEffect(() => {
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual"
+    }
+  }, [])
 
   return (
     <StyledAppContainer>
