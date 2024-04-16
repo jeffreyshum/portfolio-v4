@@ -5,6 +5,7 @@ import HeroSection from "./components/Sections/Hero"
 import { StyledAppSection } from "./components/Sections/Section"
 import SkillSection from "./components/Sections/SkillSection"
 import Footer from "./components/Sections/Footer"
+import ProjectsSection from "./components/Sections/ProjectsSection"
 
 const StyledAppContainer = styled.div`
   padding: 0;
@@ -51,7 +52,7 @@ const App = () => {
         >
           <HeroSection />
           <SkillSection />
-          <StyledAppSection />
+          <ProjectsSection />
           <StyledAppSection />
           <StyledAppSection />
           <StyledAppSection />
