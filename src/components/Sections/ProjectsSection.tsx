@@ -4,7 +4,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { StyledCardBase } from "../Card"
-import styled, { WebTarget } from "styled-components"
+import styled from "styled-components"
 
 const StyledProjectItemContainer = styled(StyledCardBase)`
   background-color: white;
