@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import LabeledSection from "./LabeledSection"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
@@ -19,15 +19,20 @@ const StyledProjectItemContainer = styled(StyledCardBase)`
   background-attachment: fixed;
   background-position: center;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    transform: scale(0.75);
+  }
 `
 
 const StyledSlider = styled(Slider)`
   .slick-slide {
     transition: 0.3s;
+    position: relative;
   }
 
   .slick-slide:not(.slick-active) {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   .slick-slide:hover {
@@ -75,16 +80,34 @@ const data = [
 
 const ProjectsSection: FC = () => {
   const [selected, setSelected] = useState(0)
+  const sliderRef = useRef<Slider | null>(null)
 
+  // This useEffect prevents partial drags from changing selected but not .active CSS
+  useEffect(() => {
+    sliderRef.current?.slickGoTo(selected)
+  }, [selected])
+  
   const settings = {
     dots: true,
     infinite: false,
     adaptiveHeight: true,
     variableWidth: true,
     centerMode: true,
+    swipe: true,
     initialSlide: selected,
-    afterChange: (index: number) => setSelected(index),
     focusOnSelect: true,
+    afterChange: (index: number) => {
+      setSelected(index)
+    },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          variableWidth: false,
+
+        },
+      },
+    ],
   }
 
   return (
@@ -93,7 +116,7 @@ const ProjectsSection: FC = () => {
       sectionCardImage={"/images/lightbulb-gear.png"}
     >
       <StyledSliderContainer>
-        <StyledSlider {...settings}>
+        <StyledSlider {...settings} ref={sliderRef}>
           {data.map((item) => (
             <ProjectItem
               name={item.title}
