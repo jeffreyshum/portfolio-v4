@@ -38,6 +38,10 @@ const StyledDeckContainer = styled(motion.div)`
   top: 0;
   padding-top: 200px;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    position: absolute;
+  }
 `
 
 interface DeckProps extends React.HTMLProps<HTMLDivElement> {
@@ -46,6 +50,7 @@ interface DeckProps extends React.HTMLProps<HTMLDivElement> {
 
 const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
   const [cards, ]   = useState(initializeStandardDeck())
+  const [showCount, setshowCount] = useState(cards.length)
   const cardControl = useAnimation()
   const cardContainerControl = useAnimation()
 
@@ -80,13 +85,14 @@ const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
         duration: 1.5 - (cards.length - i) / cards.length,
       },
     }),
-    end: {
+    end: (i) => ({
       top: "90%",
       paddingTop: 0,
       transition: {
         duration: 1.25,
       },
-    },
+      display: i < 5 ? "none" : "",
+    }),
   }
 
   useEffect(() => {
@@ -97,6 +103,7 @@ const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
       // await cardControl.start("rightSpring")
       await cardControl.start("together")
       await cardContainerControl.start("end")
+      setshowCount(10)
       setActiveSection("home")
     }
 
@@ -109,7 +116,7 @@ const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
 
   return (
     <StyledDeckContainer variants={deckVariants} animate={cardContainerControl}>
-      {cards.map((card, index) => (
+      {cards.map((card, index) => index < showCount ? (
         <Card
           custom={index}
           variants={deckVariants}
@@ -119,7 +126,7 @@ const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
           card={card}
           side="back"
         />
-      ))}
+      ) : "")}
     </StyledDeckContainer>
   )
 }

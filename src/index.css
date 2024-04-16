@@ -22,6 +22,7 @@ html {
   letter-spacing: var(--font-letter-spacing);
   font-weight: var(--font-weight);
   font-size: var(--font-size);
+  scroll-behavior: smooth;
 }
 
 html,

@@ -17,12 +17,16 @@ const HeroCard = styled(Card)`
   transform: scale(0.75)
     rotate(${(Math.random() < 0.5 ? -1 : 1) * Math.random() * 25}deg);
   position: absolute;
+
+  @media (max-width: 768px) {
+    transform: scale(0.65) rotate(-15deg);
+  }
 `
 
 const SplitContainer = styled.div`
   display: flex;
   width: 100%;
-  padding: 5px;
+  padding: 10px;
 `
 
 export const StyledIconContainer = styled.div`
