@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Lora";
-  src: url("/public/Lora-Regular.ttf");
+  src: url("/Lora-Regular.ttf");
 }
 
 :root {
@@ -13,6 +13,7 @@
   --font-size: 1rem;
   --border-color: lightgrey;
   --footer-text-color: #d3d3d3;
+  --link-color: cyan;
 }
 
 html {
@@ -35,4 +36,17 @@ body {
 body {
   width: 100%;
   position: relative;
+}
+
+img {
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+a {
+  color: var(--link-color);
 }

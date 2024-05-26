@@ -24,7 +24,7 @@ const StyledLabelContainer = styled(motion.div)`
   position: sticky;
   bottom: 10%;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
 `
 
 const LabelCard = styled(StyledCardBase)`

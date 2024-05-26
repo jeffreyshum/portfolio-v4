@@ -1,69 +1,89 @@
 import { FC } from "react"
 import LabeledSection from "./LabeledSection"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import { StyledCardBase } from "../Card"
-import styled, { WebTarget } from "styled-components"
+import styled from "styled-components"
+import { MemoryRouter, useMatch, useRoutes } from "react-router-dom"
+import ProjectCard from "./ProjectCard"
 
-const StyledProjectItemContainer = styled(StyledCardBase)`
-  background-color: white;
-  text-align: center;
-  position: static;
-  margin-right: 1rem;
-  width: 281px;
-  height: 394px;
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-attachment: fixed;
-  background-position: center;
-  opacity: 0.5;
-  transition: 0.3s;
+const Items = [
+  {
+    id: "milton",
+    title: "Milton",
+    titleColor: "black",
+    image: "/images/milton.png",
+    children: [
+      "Named after 17th century poet John Milton, Milton is an app that helps you learn about art.\
+      Much of Milton's work was written completely in the dark, as he lost his sight in his 40s. Yet in his blindness, \
+      his work grew more vivid and imaginative. His magnum opus, \
+      Paradise Lost, is a testament to the power of art to transcend the physical world.",
+      "Milton is designed to help you experience art in a new way, by providing audio descriptions of art pieces. \
+      All you need to do is scan a piece of art, and Milton will provide you with information about the art and an audio description if desired.",
+      "Built with React Native, AWS, Django, and Landing Lens by Landing AI.",
+      <a href="https://devpost.com/software/milton-a9shl7" target="_blank">
+        Submission for SBUHacks 2024
+      </a>,
+    ],
+  },
+  {
+    id: "blog",
+    title: "Blog",
+    titleColor: "white",
+    image: "/images/blog.png",
+  },
+]
 
-  &:hover {
-    opacity: 1;
+const StyledCardList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  list-style-type: none;
+  padding: 5px;
+
+  @media (max-width: 768px) {
+    align-content: center;
+    justify-content: center;
   }
 `
 
-const StyledSliderContainer = styled.div`
-  height: 100vh;
-`
+const CardList: FC = () => {
+  const match = useMatch(":id")
 
-interface ProjectItemProps extends React.HTMLProps<HTMLImageElement> {
-  name: string
-  image?: string
-}
-
-const ProjectItem: FC<ProjectItemProps> = (props) => {
   return (
-    <StyledProjectItemContainer
-      style={{
-        backgroundImage: `url(${props.image})`,
-      }}
-    ></StyledProjectItemContainer>
+    <StyledCardList>
+      {Items.map((item) => (
+        <ProjectCard
+          key={item.id}
+          isSelected={match?.params.id === item.id}
+          {...item}
+        />
+      ))}
+    </StyledCardList>
   )
 }
 
 const ProjectsSection: FC = () => {
-  const settings = {
-    dots: true,
-    infinite: false,
-    adaptiveHeight: true,
-    variableWidth: true,
-    centerMode: true,
+  const RouterApp = () => {
+    const cardList = <CardList />
+    const routes = [
+      {
+        path: "/",
+        children: [
+          { index: true, element: cardList },
+          { path: ":id", element: cardList },
+        ],
+      },
+    ]
+
+    return useRoutes(routes)
   }
+
   return (
     <LabeledSection
       sectionTitle={"Projects"}
       sectionCardImage={"/images/lightbulb-gear.png"}
     >
-      <StyledSliderContainer>
-        <Slider {...settings}>
-          <ProjectItem name={"Milton"} image={"/images/milton.png"} />
-          <ProjectItem name={"Blog"} />
-          <ProjectItem name={"This Website"} />
-        </Slider>
-      </StyledSliderContainer>
+      <MemoryRouter>
+        <RouterApp />
+      </MemoryRouter>
     </LabeledSection>
   )
 }

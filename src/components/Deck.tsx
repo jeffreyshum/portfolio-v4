@@ -50,7 +50,7 @@ interface DeckProps extends React.HTMLProps<HTMLDivElement> {
 
 const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
   const [cards, ]   = useState(initializeStandardDeck())
-  const [showCount, setshowCount] = useState(cards.length)
+  const [showCount, setShowCount] = useState(cards.length)
   const cardControl = useAnimation()
   const cardContainerControl = useAnimation()
 
@@ -103,7 +103,7 @@ const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
       // await cardControl.start("rightSpring")
       await cardControl.start("together")
       await cardContainerControl.start("end")
-      setshowCount(10)
+      setShowCount(10)
       setActiveSection("home")
     }
 
