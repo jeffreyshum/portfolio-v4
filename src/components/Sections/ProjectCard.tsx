@@ -82,7 +82,7 @@ const StyledXButton = styled(Link)<{ isSelected: boolean }>`
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background-image: url(/public/images/icons/close.svg);
+  background-image: url(/images/icons/close.svg);
   background-position: center;
   background-repeat: no-repeat;
 `
