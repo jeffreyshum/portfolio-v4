@@ -195,13 +195,17 @@ const StyledSuitIcon = styled.img`
   width: 20px;
   align-self: center;
   margin-top: 15px;
+  rotate: 180deg;
 `
 
 const SuitIcon: FC = () => {
   const suits = useMemo(() => ["clubs", "diamonds", "hearts", "spades"], [])
   const suit = useMemo(() => suits[Math.floor(Math.random() * 4)], [suits])
 
-  return <StyledSuitIcon src={`/images/standard/${suit}.svg`} />
+  return <div>
+    <StyledSuitIcon src={`/images/standard/${suit}.svg`} />
+    <StyledSuitIcon style={{float: "right"}} src={`/images/standard/${suit}.svg`} />
+    </div>
 }
 
 interface CardProps extends PropsWithChildren {
@@ -219,6 +223,8 @@ const ProjectCard: FC<CardProps> = (props) => {
   const contentRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
 
+  // TODO: swipe away works for scroll but not for drag
+  // Dragging leaves the card in a weird location 
   // For swipe away
   // const checkSwipeAway = useCallback(() => {
   //   const swipeAwayDistance = 100
