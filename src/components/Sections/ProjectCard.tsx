@@ -32,6 +32,11 @@ const StyledCard = styled.li`
     padding-right: 0;
   }
 
+  &:last-child:nth-child(odd) {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+
   @media (max-width: 768px) {
     flex: 1 0 100%;
     max-width: 100%;
