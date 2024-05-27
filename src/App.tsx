@@ -2,10 +2,10 @@ import styled from "styled-components"
 import Deck from "./components/Deck"
 import { useState } from "react"
 import HeroSection from "./components/Sections/Hero"
-import { StyledAppSection } from "./components/Sections/Section"
 import SkillSection from "./components/Sections/SkillSection"
 import Footer from "./components/Sections/Footer"
 import ProjectsSection from "./components/Sections/ProjectsSection"
+import ContactSection from "./components/Sections/ContactSection"
 
 const StyledAppContainer = styled.div`
   padding: 0;
@@ -19,6 +19,10 @@ const MainContainer = styled.main`
   align-items: center;
   flex-direction: column;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding-bottom: 750px;
+  }
 `
 
 const StyledContentContainer = styled.div`
@@ -53,13 +57,11 @@ const App = () => {
           <HeroSection />
           <SkillSection />
           <ProjectsSection />
-          <StyledAppSection />
-          <StyledAppSection />
-          <StyledAppSection />
+          <ContactSection />
           {/* Remember to do icons8 footer attribution */}
         </StyledContentContainer>
       </MainContainer>
-      <Footer />
+      {activeSection && <Footer />}
     </StyledAppContainer>
   )
 }

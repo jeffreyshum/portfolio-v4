@@ -1,7 +1,7 @@
 import { FC } from "react"
 import styled from "styled-components"
 import { StyledIconContainer } from "./Hero"
-import IconChip from "../IconChip"
+import { ContactIcons } from "../IconChip"
 
 const StyledFooter = styled.footer`
   background-color: var(--bg-footer);
@@ -30,35 +30,7 @@ const Footer: FC = () => {
         <StyledFooterText>Copyright &copy; 2024 Jeffrey Shum</StyledFooterText>
       </StyledFooterContainer>
       <StyledIconContainer>
-        <a
-          href="https://github.com/jeffreyshum"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <IconChip color="grey" src="/images/icons/github.svg" alt="GitHub" />
-        </a>
-        <a
-          href="https://www.instagram.com/jeffreyshum_/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <IconChip
-            color="orange"
-            src="/images/icons/instagram.svg"
-            alt="Instagram"
-          />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/shumjeffrey/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <IconChip
-            color="#7B68EE"
-            src="/images/icons/linkedin.svg"
-            alt="LinkedIn"
-          />
-        </a>
+        <ContactIcons />
       </StyledIconContainer>
     </StyledFooter>
   )
