@@ -18,7 +18,11 @@ const Items = [
       "Milton is designed to help you experience art in a new way, by providing audio descriptions of art pieces. \
       All you need to do is scan a piece of art, and Milton will provide you with information about the art and an audio description if desired.",
       "Built with React Native, AWS, Django, and Landing Lens by Landing AI.",
-      <a href="https://devpost.com/software/milton-a9shl7" target="_blank">
+      <a
+        href="https://devpost.com/software/milton-a9shl7"
+        target="_blank"
+        rel="noreferrer"
+      >
         Submission for SBUHacks 2024
       </a>,
     ],

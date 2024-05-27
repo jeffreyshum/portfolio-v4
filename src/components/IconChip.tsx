@@ -43,17 +43,25 @@ const IconChip: FC<IconChipProps> = (props) => {
 export const ContactIcons: FC = () => {
   return (
     <>
-      <a href="https://github.com/jeffreyshum" target="_blank">
+      <a href="https://github.com/jeffreyshum" target="_blank" rel="noreferrer">
         <IconChip color="grey" src="/images/icons/github.svg" alt="GitHub" />
       </a>
-      <a href="https://www.instagram.com/jeffreyshum_/" target="_blank">
+      <a
+        href="https://www.instagram.com/jeffreyshum_/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <IconChip
           color="orange"
           src="/images/icons/instagram.svg"
           alt="Instagram"
         />
       </a>
-      <a href="https://www.linkedin.com/in/shumjeffrey/" target="_blank">
+      <a
+        href="https://www.linkedin.com/in/shumjeffrey/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <IconChip
           color="#7B68EE"
           src="/images/icons/linkedin.svg"

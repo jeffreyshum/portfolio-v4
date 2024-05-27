@@ -58,7 +58,6 @@ const App = () => {
           <SkillSection />
           <ProjectsSection />
           <ContactSection />
-          {/* Remember to do icons8 footer attribution */}
         </StyledContentContainer>
       </MainContainer>
       {activeSection && <Footer />}

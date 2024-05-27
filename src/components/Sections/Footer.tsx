@@ -13,6 +13,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   flex-direction: column;
   text-align: center;
+  letter-spacing: var(--font-letter-spacing);
 `
 
 const StyledFooterContainer = styled.div`
@@ -21,6 +22,12 @@ const StyledFooterContainer = styled.div`
 
 const StyledFooterText = styled.p`
   color: var(--footer-text-color);
+`
+
+const StyledFooterAccreditation = styled(StyledFooterText)`
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  letter-spacing: normal;
 `
 
 const Footer: FC = () => {
@@ -32,6 +39,38 @@ const Footer: FC = () => {
       <StyledIconContainer>
         <ContactIcons />
       </StyledIconContainer>
+      <StyledFooterAccreditation>
+        Icons by{" "}
+        <a href="https://icons8.com/" target="_blank" rel="noreferrer">
+          Icons8
+        </a>{" "}
+        and from{" "}
+        <a
+          href="https://github.com/microsoft/vscode-icons"
+          target="_blank"
+          rel="noreferrer"
+        >
+          VSCode Icons
+        </a>
+        <br />
+        Cards generated from{" "}
+        <a href="https://robohash.org/" target="_blank" rel="noreferrer">
+          me.uk
+        </a>{" "}
+        by{" "}
+        <a href="https://github.com/revk" target="_blank" rel="noreferrer">
+          RevK
+        </a>
+        <br />
+        Favicon made by{" "}
+        <a
+          href="https://www.linkedin.com/in/wimie-hsieh/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Wimie Hsieh
+        </a>
+      </StyledFooterAccreditation>
     </StyledFooter>
   )
 }
