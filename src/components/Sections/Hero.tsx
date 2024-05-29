@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { StyledAppSection } from "./Section"
 import Card from "../Card"
 import { ContactIcons } from "../IconChip"
+import Nav from "./Nav"
 
 const StyledHeroSection = styled(StyledAppSection)`
   padding-top: 7rem;
@@ -74,6 +75,7 @@ const HeroSection: FC = () => {
           <HeroCard card="AS" side="front" />
         </Right>
       </SplitContainer>
+      <Nav />
     </StyledHeroSection>
   )
 }

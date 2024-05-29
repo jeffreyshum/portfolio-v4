@@ -47,6 +47,7 @@ const SkillItem: FC<SkillItemProps> = (props) => {
 const SkillSection: FC = () => {
   return (
     <LabeledSection
+      anchor={"skills"}
       sectionTitle={"Skills"}
       sectionCardImage={"/images/pencil-wrench.png"}
     >

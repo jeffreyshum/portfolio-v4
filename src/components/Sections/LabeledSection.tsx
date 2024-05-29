@@ -27,7 +27,7 @@ const StyledLabelContainer = styled(motion.div)`
   z-index: 1;
 `
 
-const LabelCard = styled(StyledCardBase)`
+export const LabelCard = styled(StyledCardBase)`
   background: white;
   text-align: center;
   padding-top: 0;
@@ -35,20 +35,21 @@ const LabelCard = styled(StyledCardBase)`
   transition: transform 0.5s;
 `
 
-const LabelCardImage = styled.img`
+export const LabelCardImage = styled.img`
   margin-top: 25px;
   width: 200px;
   height: 225px;
   object-fit: contain;
 `
 
-const LabelCardText = styled.h1`
+export const LabelCardText = styled.h1`
   margin-top: 5px;
 `
 
 interface LabelSectionProps extends React.HTMLProps<HTMLDivElement> {
   sectionTitle: string
   sectionCardImage: string
+  anchor: string
 }
 
 const LabeledSection: FC<LabelSectionProps> = (props) => {
@@ -56,7 +57,7 @@ const LabeledSection: FC<LabelSectionProps> = (props) => {
 
   return (
     <StyledLabelSection ref={ref}>
-      <StyledSectionHeading>{props.sectionTitle}</StyledSectionHeading>
+      <StyledSectionHeading id={props.anchor}>{props.sectionTitle}</StyledSectionHeading>
       <StyledChildrenContainer>{props.children}</StyledChildrenContainer>
       <StyledLabelContainer>
         <LabelCard whileInView={{ rotateY: "0deg" }}>

@@ -13,6 +13,7 @@ const StyledIconContainer = styled.div`
 const ContactSection: FC = () => {
   return (
     <LabeledSection
+      anchor="contact"
       sectionTitle="Get in Touch"
       sectionCardImage="/images/handshake.png"
     >

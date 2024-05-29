@@ -27,12 +27,12 @@ const Items = [
       </a>,
     ],
   },
-  {
-    id: "blog",
-    title: "Blog",
-    titleColor: "white",
-    image: "/images/blog.png",
-  },
+  // {
+  //   id: "blog",
+  //   title: "Blog",
+  //   titleColor: "white",
+  //   image: "/images/blog.png",
+  // },
 ]
 
 const StyledCardList = styled.ul`
@@ -82,6 +82,7 @@ const ProjectsSection: FC = () => {
 
   return (
     <LabeledSection
+      anchor={"projects"}
       sectionTitle={"Projects"}
       sectionCardImage={"/images/lightbulb-gear.png"}
     >
