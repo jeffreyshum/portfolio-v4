@@ -2,10 +2,11 @@ import styled from "styled-components"
 import Deck from "./components/Deck"
 import { useState } from "react"
 import HeroSection from "./components/Sections/Hero"
-import SkillSection from "./components/Sections/SkillSection"
 import Footer from "./components/Sections/Footer"
 import ProjectsSection from "./components/Sections/ProjectsSection"
 import ContactSection from "./components/Sections/ContactSection"
+import AboutSection from "./components/Sections/AboutSection"
+import { motion } from "framer-motion"
 
 const StyledAppContainer = styled.div`
   padding: 0;
@@ -13,7 +14,7 @@ const StyledAppContainer = styled.div`
 `
 
 const MainContainer = styled.main`
-  min-height: 150vh;
+  min-height: 90vh;
   padding-bottom: 350px;
   display: flex;
   align-items: center;
@@ -25,7 +26,7 @@ const MainContainer = styled.main`
   }
 `
 
-const StyledContentContainer = styled.div`
+const StyledContentContainer = styled(motion.div)`
   max-width: 768px;
   width: 100%;
   display: flex;
@@ -43,22 +44,19 @@ const App = () => {
     <StyledAppContainer>
       <MainContainer>
         <Deck setActiveSection={setActiveSection} />
-        <StyledContentContainer
-          style={
-            activeSection
-              ? {}
-              : {
-                  opacity: 0,
-                  minHeight: 0,
-                  height: 0,
-                }
-          }
-        >
-          <HeroSection />
-          <SkillSection />
-          <ProjectsSection />
-          <ContactSection />
-        </StyledContentContainer>
+        {activeSection && (
+          <StyledContentContainer
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <HeroSection />
+            <AboutSection />
+            {/* <SkillSection /> */}
+            <ProjectsSection />
+            <ContactSection />
+          </StyledContentContainer>
+        )}
       </MainContainer>
       {activeSection && <Footer />}
     </StyledAppContainer>

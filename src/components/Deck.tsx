@@ -38,10 +38,6 @@ const StyledDeckContainer = styled(motion.div)`
   top: 0;
   padding-top: 200px;
   z-index: 1;
-
-  @media (max-width: 768px) {
-    position: absolute;
-  }
 `
 
 interface DeckProps extends React.HTMLProps<HTMLDivElement> {
@@ -91,7 +87,7 @@ const Deck: React.FC<DeckProps> = ({ setActiveSection }) => {
       transition: {
         duration: 1.25,
       },
-      display: i < 5 ? "none" : "",
+      display: i < 1 ? "none" : "",
     }),
   }
 

@@ -64,8 +64,8 @@ const Nav: FC = () => {
           <NavCard
             order={0}
             href="#about"
-            sectionTitle="About"
-            sectionCardImage={"/images/pencil-wrench.png"}
+            sectionTitle="About Me"
+            sectionCardImage={"/images/about.png"}
           />
         </li>
         <li>

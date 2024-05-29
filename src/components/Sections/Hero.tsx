@@ -13,6 +13,10 @@ const StyledHeroSection = styled(StyledAppSection)`
 
 const HeroText = styled.span`
   font-size: 3rem;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `
 
 const HeroCard = styled(Card)`
