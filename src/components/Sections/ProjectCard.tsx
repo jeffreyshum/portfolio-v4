@@ -341,7 +341,7 @@ const ProjectCard: FC<CardProps> = (props) => {
             isSelected={props.isSelected}
             $hovered={cardHovered}
           />
-          <StyledCardTitle color={props.titleColor}>
+          <StyledCardTitle color={props.titleColor || "white"}>
             {props.title}
           </StyledCardTitle>
           <StyledXButton to="/" isSelected={props.isSelected} />

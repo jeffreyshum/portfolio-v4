@@ -4,7 +4,44 @@ import styled from "styled-components"
 import { MemoryRouter, useMatch, useRoutes } from "react-router-dom"
 import ProjectCard from "./ProjectCard"
 
-const Items = [
+interface ProjectItem {
+  id: string
+  title: string
+  titleColor?: string
+  image: string
+  children?: React.ReactNode
+}
+
+const Items: ProjectItem[] = [
+  {
+    id: "portfolio",
+    title: "Poker Themed Portfolio",
+    titleColor: "black",
+    image: "/images/portfolio.png",
+    children: [
+      "My personal portfolio website (the one you're on right now) is a poker themed website that showcases my projects and skills.",
+      "The user experience invokes many elements of poker, such as the use of themed poker chips, cards, and an initial shuffle animation.\
+      As you navigate through the site, each section is represented by a different card, which is flipped over when you enter the section.\
+      As you scroll through the site, once you reach the bottom after all the cards have been flipped, the deck is left at the bottom of the page\
+      as a nod to the phrase \"the cards have now been dealt,\" with the cards representing my qualities and skills. In the theme of poker,\
+      many visual aspects of the page are randomized, such as card rotations, chip rotations, the initial shuffle animation, and suit icons.",
+      "Built with React, TypeScript, styled-components, react-router, and Framer.",
+      <a
+        href="https://jeffreyshum.com/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Visit Site
+      </a>,
+      <a
+        href="https://github.com/jeffreyshum/portfolio-v4"
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub Repository
+      </a>
+    ]
+  },
   {
     id: "milton",
     title: "Milton",
